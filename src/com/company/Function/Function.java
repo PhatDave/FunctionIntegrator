@@ -36,6 +36,7 @@ public class Function {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("f(x) = ");
         boolean forcePrefix = false;
         for (Argument argument : arguments) {
             sb.append(argument.toString(forcePrefix));

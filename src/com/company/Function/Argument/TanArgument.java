@@ -13,4 +13,22 @@ public class TanArgument implements Argument {
             return -Math.tan(val);
         return Math.tan(val);
     }
+
+    @Override
+    public Argument integrate() {
+        return new NaturalLogArgument(new CosArgument(false), true);
+    }
+
+    @Override
+    public String toString(boolean forcePrefix) {
+        StringBuilder sb = new StringBuilder();
+        appendPrefix(sb, forcePrefix);
+        sb.append("tan(x)");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean isNegative() {
+        return isNegative;
+    }
 }
