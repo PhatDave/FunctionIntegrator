@@ -29,6 +29,7 @@ public class Function {
 
     public Double integrateOver(int start, int end) {
         this.integrate();
+        System.out.println(this);
         return this.apply(end) - this.apply(start);
     }
 

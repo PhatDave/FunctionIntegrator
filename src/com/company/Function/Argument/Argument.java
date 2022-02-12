@@ -16,11 +16,12 @@ public interface Argument {
     }
 
     default Double parseValue(String arg) {
-        Pattern p = Pattern.compile("[0-9]+");
+        Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(arg);
         m.find();
         try {
-            return Double.parseDouble(m.group());
+            var val = m.group();
+            return Double.parseDouble(val);
         } catch(IllegalStateException e) {
             return 1.0;
         }

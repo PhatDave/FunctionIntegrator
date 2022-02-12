@@ -18,13 +18,14 @@ public class ArctanArgument implements Argument {
 
     @Override
     public Argument integrate() {
-        return new NaturalLogArgument(new SinArgument(this.value + "", false), false);
+        return new NaturalLogArgument(this.value + "", new SinArgument("", false), false);
     }
 
     @Override
     public String toString(boolean forcePrefix) {
         StringBuilder sb = new StringBuilder();
         appendPrefix(sb, forcePrefix);
+        sb.append(this.value);
         sb.append("atan(x)");
         return sb.toString();
     }

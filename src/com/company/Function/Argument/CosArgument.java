@@ -25,6 +25,7 @@ public class CosArgument implements Argument {
     public String toString(boolean forcePrefix) {
         StringBuilder sb = new StringBuilder();
         appendPrefix(sb, forcePrefix);
+        sb.append(this.value);
         sb.append("cos(x)");
         return sb.toString();
     }

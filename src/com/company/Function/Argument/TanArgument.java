@@ -18,13 +18,14 @@ public class TanArgument implements Argument {
 
     @Override
     public Argument integrate() {
-        return new NaturalLogArgument(new CosArgument(this.value + "", false), true);
+        return new NaturalLogArgument(this.value + "", new CosArgument("", false), true);
     }
 
     @Override
     public String toString(boolean forcePrefix) {
         StringBuilder sb = new StringBuilder();
         appendPrefix(sb, forcePrefix);
+        sb.append(this.value);
         sb.append("tan(x)");
         return sb.toString();
     }

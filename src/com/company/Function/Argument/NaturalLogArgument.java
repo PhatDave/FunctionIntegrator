@@ -5,7 +5,8 @@ public class NaturalLogArgument implements Argument {
     private boolean isNegative = false;
     private Argument argument;
 
-    public NaturalLogArgument(Argument argument, boolean isNegative) {
+    public NaturalLogArgument(String arg, Argument argument, boolean isNegative) {
+        this.value = this.parseValue(arg);
         this.argument = argument;
         this.isNegative = isNegative;
     }
@@ -27,6 +28,8 @@ public class NaturalLogArgument implements Argument {
     public String toString(boolean forcePrefix) {
         StringBuilder sb = new StringBuilder();
         appendPrefix(sb, forcePrefix);
+//        TODO: Would be nice to have it not print 1.0 (if value is 1) but i ran out of nerves
+        sb.append(this.value);
         sb.append("ln(|");
         sb.append(this.argument.toString(false));
         sb.append("|)");
