@@ -1,22 +1,24 @@
 package com.company.Function.Argument;
 
 public class TanArgument implements Argument {
+    private Double value = 1.0;
     private boolean isNegative = false;
 
-    public TanArgument(boolean isNegative) {
+    public TanArgument(String arg, boolean isNegative) {
         this.isNegative = isNegative;
+        this.value = this.parseValue(arg);
     }
 
     @Override
     public Double apply(int val) {
         if (this.isNegative)
-            return -Math.tan(val);
-        return Math.tan(val);
+            return -value * Math.tan(val);
+        return value * Math.tan(val);
     }
 
     @Override
     public Argument integrate() {
-        return new NaturalLogArgument(new CosArgument(false), true);
+        return new NaturalLogArgument(new CosArgument(this.value + "", false), true);
     }
 
     @Override

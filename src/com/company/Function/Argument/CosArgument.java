@@ -1,22 +1,24 @@
 package com.company.Function.Argument;
 
 public class CosArgument implements Argument {
+    private Double value = 1.0;
     private boolean isNegative = false;
 
-    public CosArgument(boolean isNegative) {
+    public CosArgument(String arg, boolean isNegative) {
         this.isNegative = isNegative;
+        this.value = this.parseValue(arg);
     }
 
     @Override
     public Double apply(int val) {
         if (this.isNegative)
-            return -Math.cos(val);
-        return Math.cos(val);
+            return -value * Math.cos(val);
+        return value * Math.cos(val);
     }
 
     @Override
     public Argument integrate() {
-        return new SinArgument(this.isNegative);
+        return new SinArgument(this.value + "", this.isNegative);
     }
 
     @Override

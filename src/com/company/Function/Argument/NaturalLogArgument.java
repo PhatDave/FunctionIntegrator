@@ -1,6 +1,7 @@
 package com.company.Function.Argument;
 
 public class NaturalLogArgument implements Argument {
+    private Double value = 1.0;
     private boolean isNegative = false;
     private Argument argument;
 

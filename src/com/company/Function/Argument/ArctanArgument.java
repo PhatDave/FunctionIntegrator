@@ -1,22 +1,24 @@
 package com.company.Function.Argument;
 
 public class ArctanArgument implements Argument {
+    private Double value = 1.0;
     private boolean isNegative = false;
 
-    public ArctanArgument(boolean isNegative) {
+    public ArctanArgument(String arg, boolean isNegative) {
         this.isNegative = isNegative;
+        this.value = this.parseValue(arg);
     }
 
     @Override
     public Double apply(int val) {
         if (this.isNegative)
-            return -Math.atan(val);
-        return Math.atan(val);
+            return -value * Math.atan(val);
+        return value * Math.atan(val);
     }
 
     @Override
     public Argument integrate() {
-        return new NaturalLogArgument(new SinArgument(false), false);
+        return new NaturalLogArgument(new SinArgument(this.value + "", false), false);
     }
 
     @Override
