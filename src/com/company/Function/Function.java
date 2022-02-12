@@ -20,9 +20,11 @@ public class Function {
     }
 
     public void integrate() {
+        ArrayList<Argument> newArguments = new ArrayList<Argument>();
         for (Argument argument : arguments) {
-            argument.integrate();
+            newArguments.add(argument.integrate());
         }
+        this.arguments = newArguments;
     }
 
     public Double integrateOver(int start, int end) {

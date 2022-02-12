@@ -13,4 +13,22 @@ public class CosArgument implements Argument {
             return -Math.cos(val);
         return Math.cos(val);
     }
+
+    @Override
+    public Argument integrate() {
+        return new SinArgument(this.isNegative);
+    }
+
+    @Override
+    public String toString(boolean forcePrefix) {
+        StringBuilder sb = new StringBuilder();
+        appendPrefix(sb, forcePrefix);
+        sb.append("cos(x)");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean isNegative() {
+        return isNegative;
+    }
 }
