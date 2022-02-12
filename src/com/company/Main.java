@@ -8,8 +8,6 @@ public class Main {
 //        Calculate A * f(x) + B between T1 and T2
         String test = "10x^13 + 5x^12 + 3x^4";
         Function function = StringFunctionParser.parse(test);
-        System.out.println(function.toString());
-        function.integrate();
-        System.out.println(function.toString());
+        System.out.println(function.integrateOver(0, 2));
     }
 }

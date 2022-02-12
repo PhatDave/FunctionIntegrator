@@ -27,8 +27,12 @@ public class PolynomialArgument implements Argument {
     @Override
     public Double apply(int val) {
         if (this.isNegative())
-            return -Math.pow(value * val, power);
-        return Math.pow(value * val, power);
+            return -value * this.doPow(val);
+        return value * this.doPow(val);
+    }
+
+    private Double doPow(int val) {
+        return Math.pow(val, power);
     }
 
     @Override
