@@ -26,8 +26,33 @@ public class PolynomialArgument implements Argument {
 
     @Override
     public Double apply(int val) {
-        if (this.isNegative)
+        if (this.isNegative())
             return -Math.pow(value * val, power);
         return Math.pow(value * val, power);
+    }
+
+    @Override
+    public Argument integrate() {
+        this.value = this.value / (this.power + 1);
+        this.power++;
+        return this;
+    }
+
+    @Override
+    public boolean isNegative() {
+        return isNegative;
+    }
+
+    @Override
+    public String toString(boolean forcePrefix) {
+        StringBuilder sb = new StringBuilder();
+        appendPrefix(sb, forcePrefix);
+        sb.append(value);
+        sb.append("x");
+        if (power > 1) {
+            sb.append("^");
+            sb.append(power);
+        }
+        return sb.toString();
     }
 }
