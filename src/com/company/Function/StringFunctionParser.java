@@ -17,13 +17,13 @@ public class StringFunctionParser {
                 continue;
             }
             if (arg.contains("sin")) {
-                function.addArgument(new SinArgument(arg, isNegative));
+                function.addArgument(new SinArgument(isNegative));
             } else if (arg.contains("cos")) {
-                function.addArgument(new CosArgument(arg, isNegative));
+                function.addArgument(new CosArgument(isNegative));
             } else if (arg.contains("tan")) {
-                function.addArgument(new TanArgument(arg, isNegative));
+                function.addArgument(new TanArgument(isNegative));
             } else if (arg.contains("arctan")) {
-                function.addArgument(new ArctanArgument(arg, isNegative));
+                function.addArgument(new ArctanArgument(isNegative));
             } else if (arg.contains("x")) {
                 function.addArgument(new PolynomialArgument(arg, isNegative));
             }

@@ -1,7 +1,16 @@
 package com.company.Function.Argument;
 
 public class TanArgument implements Argument {
-    public TanArgument(String arg) {
+    private boolean isNegative = false;
 
+    public TanArgument(boolean isNegative) {
+        this.isNegative = isNegative;
+    }
+
+    @Override
+    public Double apply(int val) {
+        if (this.isNegative)
+            return -Math.tan(val);
+        return Math.tan(val);
     }
 }
